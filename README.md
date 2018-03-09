@@ -1,5 +1,17 @@
 # sysadmin
-Various scripts and snippets for my Linux systems
+This repo holds various scripts and snippets for my Linux and Windows systems
+
+## CleanComponentStore.bat and ClearWindowsUpdateCache.bat
+
+Two scripts to reclaim some space from Windows 10. Run from elevated prompts to clean the component store (aka: the "WinSxS"-folder) and the Windows Update download cache. These scripts removes files that *should* be temporary but, for some reason, fill up my system drive over time. 
+
+If you're on the hunt to reclaim more space from your Windows 10 installation, here's some further tips: 
+1. [disable the Recycle Bin](https://www.tekrevue.com/tip/disable-recycle-bin-windows/) on all drives
+2. [disable System Restore Points](https://www.howtogeek.com/howto/windows-vista/disable-system-restore-in-windows-vista/) on all drives (you don't need these since you *are* running your own backups)
+3. [run Disk Cleanup](https://www.howtogeek.com/266337/what-should-i-remove-in-disk-cleanup-on-windows/)
+4. [turn on filesystem compression](https://www.howtogeek.com/133264/how-to-use-ntfs-compression-and-when-you-might-want-to/) for the `%ProgramData%` and `%SystemRoot%\Installer`-folders. (= no risk ~15% space saving)
+5. [use PatchCleaner](https://superuser.com/a/920713/190802) to move or delete orphaned installers from %SystemRoot%\Installer.
+6. [redirect `%ProgramData%\Package Cache` to another partition](https://blogs.msdn.microsoft.com/heaths/2015/06/09/redirect-the-package-cache-using-registry-based-policy/)
 
 ## backup.sh:
 A simple data backup script with grandfather-father-son rotation:
