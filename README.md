@@ -1,6 +1,10 @@
 # sysadmin
 This repo holds various scripts and snippets for my Linux and Windows systems
 
+## mirror_all_remotes.sh
+Used to securely copy filesystems from remote servers to a local backup station.
+To be used securely you need to set up a backup service account on all remote machines, allowed to authenticate only via public key. This account should be jailed to a specific folder (sftp jail via openssh is trivial to set up and works well with this script). The service account should additionally be restricted to the maximum degree: no password authentication, no sudo privileges, no write permissions on the server and ideally no shell either. 
+
 ## CleanComponentStore.bat and ClearWindowsUpdateCache.bat
 
 Two scripts to reclaim some space from Windows 10. Run from elevated prompts to clean the component store (aka: the "WinSxS"-folder) and the Windows Update download cache. These scripts removes files that *should* be temporary but, for some reason, fill up my system drive over time. 
